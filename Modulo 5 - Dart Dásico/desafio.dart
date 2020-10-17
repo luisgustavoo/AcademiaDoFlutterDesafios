@@ -32,38 +32,37 @@ void main() {
     'João Rahman|55|Jornalista|SP',
   ];
 
-  List<Pacient> patientList = [];
+  List<Paciente> listaDePacientes = [];
   for (var paciente in pacientes) {
-    final listNames = paciente.split('|');
-    patientList.add(Pacient(
-        name: listNames[0].toString(),
-        age: int.parse(listNames[1]),
-        academicFormation: listNames[2].toString(),
-        city: listNames[3].toString(),
-        family: listNames[0].split(' ')[1]));
+    final listaDeNomes = paciente.split('|');
+    listaDePacientes.add(Paciente(
+        nome: listaDeNomes[0].toString(),
+        idade: int.parse(listaDeNomes[1]),
+        formacao: listaDeNomes[2].toString(),
+        cidade: listaDeNomes[3].toString(),
+        familia: listaDeNomes[0].split(' ')[1]));
   }
 
-  var family = '';
+  var familia = '';
 
-  patientList.sort((a, b) => a.family.compareTo(b.family));
+  listaDePacientes.sort((a, b) => a.familia.compareTo(b.familia));
 
-  for (var p in patientList) {
-    if ((family.isEmpty) || (family != p.family)) {
-      print('Familia ${p.family}:');
-      family = p.family;
+  for (var p in listaDePacientes) {
+    if ((familia.isEmpty) || (familia != p.familia)) {
+      print('Familia ${p.familia}:');
+      familia = p.familia;
     }
 
-    print('     ${p.name}');
+    print('     ${p.nome}');
   }
 }
 
-class Pacient {
-  Pacient(
-      {this.name, this.age, this.academicFormation, this.city, this.family});
+class Paciente {
+  Paciente({this.nome, this.idade, this.formacao, this.cidade, this.familia});
 
-  String name;
-  int age;
-  String academicFormation;
-  String city;
-  String family;
+  String nome;
+  int idade;
+  String formacao;
+  String cidade;
+  String familia;
 }
