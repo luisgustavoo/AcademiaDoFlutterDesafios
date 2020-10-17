@@ -44,15 +44,12 @@ void main() {
   }
 
   var familia = '';
-
   listaDePacientes.sort((a, b) => a.familia.compareTo(b.familia));
-
   for (var p in listaDePacientes) {
     if ((familia.isEmpty) || (familia != p.familia)) {
       print('Familia ${p.familia}:');
       familia = p.familia;
     }
-
     print('     ${p.nome}');
   }
 }
