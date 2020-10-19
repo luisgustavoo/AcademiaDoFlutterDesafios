@@ -40,7 +40,7 @@ void main() {
         idade: int.parse(listaDeNomes[1]),
         formacao: listaDeNomes[2].toString(),
         cidade: listaDeNomes[3].toString(),
-        familia: listaDeNomes[0].split(' ')[1]));
+        familia: listaDeNomes[0].split(' ')[1].toString()));
   }
 
   var familia = '';
