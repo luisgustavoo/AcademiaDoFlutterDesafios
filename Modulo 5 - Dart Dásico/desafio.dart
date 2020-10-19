@@ -39,7 +39,7 @@ void main() {
         nome: listaDeNomes[0].toString(),
         idade: int.parse(listaDeNomes[1]),
         formacao: listaDeNomes[2].toString(),
-        cidade: listaDeNomes[3].toString(),
+        estado: listaDeNomes[3].toString(),
         familia: listaDeNomes[0].split(' ')[1].toString()));
   }
 
@@ -55,11 +55,11 @@ void main() {
 }
 
 class Paciente {
-  Paciente({this.nome, this.idade, this.formacao, this.cidade, this.familia});
+  Paciente({this.nome, this.idade, this.formacao, this.estado, this.familia});
 
   String nome;
   int idade;
   String formacao;
-  String cidade;
+  String estado;
   String familia;
 }
