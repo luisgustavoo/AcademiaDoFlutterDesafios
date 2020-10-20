@@ -22,7 +22,8 @@ void main() {
       'Agrupar os pacientes por familia(considerar o sobrenome) apresentar por familia.');
 
   List<Paciente> listaDePacientes = [];
-  for (var paciente in pacientes) {
+
+  pacientes.forEach((paciente) {
     final listaDeNomes = paciente.split('|');
     listaDePacientes.add(Paciente(
         nome: listaDeNomes[0].toString(),
@@ -30,17 +31,18 @@ void main() {
         formacao: listaDeNomes[2].toString(),
         estado: listaDeNomes[3].toString(),
         familia: listaDeNomes[0].split(' ')[1].toString()));
-  }
+  });
 
   var familia = '';
   listaDePacientes.sort((a, b) => a.familia.compareTo(b.familia));
-  for (var p in listaDePacientes) {
-    if ((familia.isEmpty) || (familia != p.familia)) {
-      print('Familia ${p.familia}:');
-      familia = p.familia;
+
+  listaDePacientes.forEach((paciente) {
+    if ((familia.isEmpty) || (familia != paciente.familia)) {
+      print('Familia ${paciente.familia}:');
+      familia = paciente.familia;
     }
-    print('     ${p.nome}');
-  }
+    print('     ${paciente.nome}');
+  });
 }
 
 class Paciente {
