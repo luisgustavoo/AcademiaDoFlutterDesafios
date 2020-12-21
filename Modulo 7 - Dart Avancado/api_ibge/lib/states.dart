@@ -22,7 +22,8 @@ class States {
     final conn = await MyConnection.getConnection();
     final districts = Districts();
     final states = await fetchStatesApi();
-    states.forEach((state) async {
+
+    for(var state in states) {
       try{
         final result = await conn.query('select count(*) as qt from estados where id = ?', [state.id]);
         if(result.first.fields['qt'] as int <= 0) {
@@ -36,7 +37,7 @@ class States {
       } finally {
         await conn.close();
       }
-    });
+    }
 
   }
 
