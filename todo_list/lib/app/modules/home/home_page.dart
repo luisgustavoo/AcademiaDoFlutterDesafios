@@ -137,22 +137,23 @@ class _HomePageState extends State<HomePage> {
                                       'Deseja excluir a tarefa?',
                                     ),
                                     actions: [
-                                      RaisedButton(
+                                      FlatButton(
                                         onPressed: () =>
                                             Navigator.of(context).pop(),
                                         child: Text(
                                           'Cancelar',
-                                          style: TextStyle(color: Colors.white),
+                                          style: TextStyle(
+                                              color: Colors.black),
                                         ),
                                       ),
-                                      RaisedButton(
+                                      FlatButton(
                                         onPressed: () {
                                           Navigator.of(context).pop();
                                           controller.deleteTodo(todo);
                                         },
                                         child: Text(
                                           'Excluir',
-                                          style: TextStyle(color: Colors.white),
+                                          style: TextStyle(color: Colors.red),
                                         ),
                                       ),
                                     ],
