@@ -30,7 +30,7 @@ class TodosRepository {
 
   Future<void> deleteTodo(TodoModel todoModel) async {
     final conn = await Connection().instance;
-    await conn.rawInsert(
+    await conn.rawDelete(
         'delete from todo where id = ?',
         [todoModel.id]);
   }
