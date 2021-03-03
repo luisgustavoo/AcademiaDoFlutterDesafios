@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   void initState() {
@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
         if (controller.error.isNotEmpty) {
           _scaffoldKey.currentState
               .showSnackBar(SnackBar(content: Text(controller.error)));
+
         }
 
         if (controller.deleted) {
@@ -137,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                                       'Deseja excluir a tarefa?',
                                     ),
                                     actions: [
-                                      FlatButton(
+                                      TextButton(
                                         onPressed: () =>
                                             Navigator.of(context).pop(),
                                         child: Text(
@@ -146,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                                               color: Colors.black),
                                         ),
                                       ),
-                                      FlatButton(
+                                      TextButton(
                                         onPressed: () {
                                           Navigator.of(context).pop();
                                           controller.deleteTodo(todo);
